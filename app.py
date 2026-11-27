@@ -4,7 +4,7 @@ import streamlit as st
 from openai import OpenAI
 
 st.set_page_config(page_title='Riesgo actuarial', layout='centered')
-st.title('Predicción de riesgo actuarial-Su Nombre-UTH-Computación en la nube')
+st.title('Predicción de riesgo actuarial-FELIPE ALVARADO-UTH-Computación en la nube')
 
 @st.cache_resource
 def cargar_modelo():
