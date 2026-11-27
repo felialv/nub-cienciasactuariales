@@ -1,4 +1,6 @@
-import os, json, joblib
+import os
+import json
+import joblib
 import pandas as pd
 import streamlit as st
 from openai import OpenAI
@@ -10,7 +12,7 @@ st.title('Predicción de riesgo actuarial-FELIPE ALVARADO-UTH-Computación en la
 def cargar_modelo():
     pkl = 'kmeans_riesgo_actuarial.pkl' if os.path.exists('kmeans_riesgo_actuarial.pkl') else 'kmeans_riesgo_actuarial(2).pkl'
     meta = 'model_metadata.json' if os.path.exists('model_metadata.json') else 'model_metadata(2).json'
-    
+
     modelo = joblib.load(pkl)
 
     with open(meta, encoding='utf-8') as f:
@@ -26,9 +28,9 @@ def cargar_base():
 modelo, metadata = cargar_modelo()
 df = cargar_base()
 
-mapa = {int(k): v for k, v in metadata['mapa_riesgo'].items()}
+mapa = {int(k): v for k, v in metadata['kmeans']['mapa_riesgo'].items()}
 
-st.caption(metadata['nombre_modelo'])
+st.caption(metadata['proyecto'])
 
 with st.form('datos'):
 
